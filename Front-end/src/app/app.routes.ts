@@ -14,4 +14,20 @@ export const appRoutes=[
         path: 'others',
         loadChildren:'./pages/others/others.module#OthersModule',
     },
+    {
+        path: 'students',
+        loadChildren:'./pages/students/students.module#StudentsModule',
+    },
+    {
+        path: 'placement',
+        loadChildren:'./pages/others/others.module#OthersModule',
+    },
+    {
+        path: 'evaluation',
+        loadChildren:'./pages/others/others.module#OthersModule',
+    },
+    {
+        path: 'patientlog',
+        loadChildren:'./pages/others/others.module#OthersModule',
+    }
 ];
