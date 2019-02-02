@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Back-end/Exxat.SupportPro.API/Exxat.SupportPro.API/bin/Debug/netcoreapp2.1
+/Back-end/Exxat.SupportPro.API/Exxat.SupportPro.API/obj
+/Back-end/Exxat.SupportPro.API/Exxat.SupportPro.API/appsettings.Development.json
+/Back-end/Exxat.SupportPro.API/.vs/Exxat.SupportPro.API/v15
+/.vs
