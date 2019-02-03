@@ -23,9 +23,9 @@ namespace Exxat.SupportPro.API.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<List<CommonQuery>> GetAsync(int id)
         {
-            return "value";
+            return await _queryService.GetCommonQuery(id);
         }
 
         // POST api/values

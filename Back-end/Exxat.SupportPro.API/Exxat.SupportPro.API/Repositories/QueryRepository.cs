@@ -9,6 +9,7 @@ namespace Exxat.SupportPro.API.Repositories
     public interface IQueryRepository
     {
         Task<List<Module>> GetAll();
+        Task<List<CommonQuery>> GetAllQueries(int id);
     }
     public class QueryRepository:IQueryRepository
     {
@@ -22,11 +23,22 @@ namespace Exxat.SupportPro.API.Repositories
         {
             try
             {
-                List<string> ModuleNames = new List<string>();
                 var modules = ModelContext.Module.ToList();
                 return modules;
             }
             catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task<List<CommonQuery>> GetAllQueries(int id)
+        {
+            try
+            {
+                return ModelContext.CommonQueries.Where(x => x.ModuleId == id).ToList();
+            }
+            catch(Exception e)
             {
                 throw e;
             }
