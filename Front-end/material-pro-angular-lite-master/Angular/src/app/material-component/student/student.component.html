@@ -1,50 +1,50 @@
 <div>
   <div fxLayout="row">
     <div fxFlex.gt-sm="100%">
+  <mat-card>
+    <mat-card-content>      
+      <div class="col-xs-3">
+          <mat-card>
+              <mat-card-content>
+                  <mat-card-title><button mat-raised-button color="Successful" [matMenuTriggerFor]="domain">Select School Name</button></mat-card-title>
+                  <!-- <mat-card-subtitle><code>&lt;mat-menu&gt;</code> is a floating panel containing list of options.</mat-card-subtitle> -->
+                  
+                
+                   <mat-menu #domain="matMenu">
+                    <button mat-menu-item [matMenuTriggerFor]="PT">PT</button>
+                    <button mat-menu-item [matMenuTriggerFor]="OT">OT</button>
+                    <button mat-menu-item [matMenuTriggerFor]="Nursing">Nursing</button>
+                  </mat-menu>
+  
+                  <mat-menu #PT="matMenu">
+                    <button mat-menu-item >Augustine-PT</button>
+                    <button mat-menu-item >Concordia-PT</button>
+                    <button mat-menu-item>Creighton-PT</button>
+                    <button mat-menu-item>TouroM-PT</button>
+                    <button mat-menu-item>UWL-PT</button>
+                  </mat-menu>
+  
+                  <mat-menu #OT="matMenu">
+                    <button mat-menu-item>Yale-PA</button>
+                    <button mat-menu-item>TouroB-PA</button>
+                    <button mat-menu-item>Drexel-PA</button>
+               
+                  </mat-menu>
+  
+                  <mat-menu #Nursing="matMenu">
+                    <button mat-menu-item>Drexel-Nursing</button>
+                    <button mat-menu-item>JHU-Nursing</button>
+                
+                  </mat-menu> 
+  
+               
+              </mat-card-content>    
+         </mat-card>
+      </div>
 
-      <mat-card>
-        <mat-card-content>      
-          <div class="col-xs-3">
-              <mat-card>
-                  <mat-card-content>
-                      <mat-card-title><button mat-raised-button color="Successful" [matMenuTriggerFor]="domain">Select School Name</button></mat-card-title>
-                      <!-- <mat-card-subtitle><code>&lt;mat-menu&gt;</code> is a floating panel containing list of options.</mat-card-subtitle> -->
-                      
-                    
-                       <mat-menu #domain="matMenu">
-                        <button mat-menu-item [matMenuTriggerFor]="PT">PT</button>
-                        <button mat-menu-item [matMenuTriggerFor]="OT">OT</button>
-                        <button mat-menu-item [matMenuTriggerFor]="Nursing">Nursing</button>
-                      </mat-menu>
-      
-                      <mat-menu #PT="matMenu">
-                        <button mat-menu-item >Augustine-PT</button>
-                        <button mat-menu-item >Concordia-PT</button>
-                        <button mat-menu-item>Creighton-PT</button>
-                        <button mat-menu-item>TouroM-PT</button>
-                        <button mat-menu-item>UWL-PT</button>
-                      </mat-menu>
-      
-                      <mat-menu #OT="matMenu">
-                        <button mat-menu-item>Yale-PA</button>
-                        <button mat-menu-item>TouroB-PA</button>
-                        <button mat-menu-item>Drexel-PA</button>
-                   
-                      </mat-menu>
-      
-                      <mat-menu #Nursing="matMenu">
-                        <button mat-menu-item>Drexel-Nursing</button>
-                        <button mat-menu-item>JHU-Nursing</button>
-                    
-                      </mat-menu> 
-      
-                   
-                  </mat-card-content>    
-             </mat-card>
-          </div>
-
-        </mat-card-content>
-      </mat-card>
+    </mat-card-content>
+  </mat-card>
+   
       <mat-card>
         <mat-card-content>
           <mat-card-title>Solve your issues related to Student-Module</mat-card-title>

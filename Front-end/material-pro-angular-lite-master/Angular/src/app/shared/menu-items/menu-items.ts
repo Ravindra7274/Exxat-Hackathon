@@ -63,20 +63,17 @@ export class MenuItems implements OnInit {
   modules:Array<any>;
   constructor(private  apiService:  ApiService){
   //  const item= this.apiService.getModules().subscribe((data : any)=>this.modules=data);
-    debugger;
   }
 
   ngOnInit(){
     
   }
   getMenuitem(): Menu[] {
-    debugger;
  // this.modules;
     return MENUITEMS;
   }
 
   fetchModule(data){
-    debugger;
     this.modules=data
     return this.modules;
   }

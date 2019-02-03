@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../logic/api.service';
 import { SupportModule } from '../../models/support.module.model';
+import { SupportProblem } from '../../models/support.problem.model';
 
 @Component({
   selector: 'app-student',
@@ -13,6 +14,7 @@ export class StudentComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   modules: Array<any>;
+showpanel:boolean;
 
   commonQueries: Array<any>[];
   filteredStudent: Array<any>;
@@ -39,8 +41,6 @@ export class StudentComponent implements OnInit {
       this.modules = data;
     }
     );
-    this.modules;
-    debugger;
   }
 
   getStudentList(clientId: any, studentName: any) {

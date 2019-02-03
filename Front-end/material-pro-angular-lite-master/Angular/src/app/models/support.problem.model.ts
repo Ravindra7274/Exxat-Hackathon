@@ -14,13 +14,19 @@ import { SupportTroubleshoot } from "./support.troubleshoot.model";
 // }
 
 export class SupportProblem{
-    QueryName:string;
+    queryId:string;
+    description:string;
+    context:string;
+    moduleId:string;
     InitialQuery:string;
-    InputParams:Array<string>
+    InputParams:Array<string>;
     Troubleshoot:SupportProblem[];
 
     SupportTroubleshoot(problem){
-        this.QueryName=problem.QueryName || '';
+        this.queryId=problem.queryId || '';
+        this.description=problem.description || '';
+        this.context=problem.context || '';
+        this.moduleId=problem.moduleId || '';
         this.InitialQuery=problem.InitialQuery || '';
         this.InputParams=problem.InputParams || [];
         this.Troubleshoot=problem.Troubleshoot || [];
