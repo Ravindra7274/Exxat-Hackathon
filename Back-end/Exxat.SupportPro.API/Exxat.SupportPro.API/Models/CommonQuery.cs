@@ -10,15 +10,23 @@ namespace Exxat.SupportPro.API.Models
         [Key]
         public int QueryId { get; set; }
         public string Description { get; set; }
-        //public string InitialQuery { get; set; }
-        [NotMapped]
-        public List<string> InputParams { get; set; }
-        [NotMapped]
-        public List<Troubleshoot> Troubleshoots { get; set; }
         public string Context { get; set; }
-
         [ForeignKey("ModuleId")]
         public int ModuleId { get; set; }
 
+        [NotMapped]
+        public string InitialQuery { get; set; }
+        [NotMapped]
+        public List<string> InputParams { get; set; }
+        [NotMapped]
+        public List<Troubleshoot> Troubleshoot { get; set; }
+
+    }
+
+    public class QueryContextModel
+    {
+        public string InitialQuery { get; set; }
+        public List<string> InputParams { get; set; }
+        public List<Troubleshoot> Troubleshoot { get; set; }
     }
 }
