@@ -9,8 +9,6 @@ export class ApiService {
 
     constructor(private http: HttpClient) {
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
-        this.headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        debugger;
     }
 
     getStudentList(ClientId: any, StudentName: any) {

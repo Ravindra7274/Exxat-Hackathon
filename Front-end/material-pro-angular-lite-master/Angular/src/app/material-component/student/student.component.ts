@@ -39,8 +39,8 @@ export class StudentComponent implements OnInit {
     this._apiservice.getStudentList(clientId,studentName).subscribe((data:any)=>this.filteredStudent=data);
   }
 
-  getCommonQueries(moduleName){
-    this._apiservice.getCommonQueries(moduleName).subscribe((data:any)=>this.commonQueries=data);
+  getCommonQueries(moduleId){
+    this._apiservice.getCommonQueries(moduleId).subscribe((data:any)=>this.commonQueries=data);
   }
 
 
