@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exxat.SupportPro.API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ namespace Exxat.SupportPro.API.Repositories
 {
     public interface IQueryRepository
     {
-        Task<List<string>> GetAll();
+        Task<List<Module>> GetAll();
     }
     public class QueryRepository:IQueryRepository
     {
@@ -17,17 +18,12 @@ namespace Exxat.SupportPro.API.Repositories
             ModelContext = modelContext;
         }
 
-        public async Task<List<string>> GetAll()
+        public async Task<List<Module>> GetAll()
         {
             try
             {
                 List<string> ModuleNames = new List<string>();
                 var modules = ModelContext.Module.ToList();
-                foreach (var module in modules)
-                {
-                    ModuleNames.Add(module.Name);
-                }
-                return ModuleNames;
             }
             catch (Exception e)
             {
