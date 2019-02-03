@@ -1,12 +1,15 @@
 
+//import { SupportTroubleshoot } from "./support.troubleshoot.model";
+
 export class SupportTroubleshoot{
-    TroubleshootName:string;
+    Name:string;
     DetectionQuery:string;
     ResolvingQuery:string;
 
-    SupportTroubleshoot(troubleshoot){
-        this.TroubleshootName=troubleshoot.TroubleshootName || '';
+    SupportProblem(troubleshoot){
+        this.Name=troubleshoot.Name || '';
         this.DetectionQuery=troubleshoot.DetectionQuery || '';
         this.ResolvingQuery=troubleshoot.ResolvingQuery || '';
-    }
+    
+}
 }
