@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ApiService} from './../../logic/api.service';
 
 export interface Menu {
@@ -8,13 +8,9 @@ export interface Menu {
   icon: string;
 }
 
-
-
 const MENUITEMS = [
-
-  { 
-    //state: 'starter', name: 'Starter Page', type: 'link', icon: 'av_timer' },
-   state: 'student', type: 'link', name: 'Student', icon: 'web' ,}
+  //{ state: 'starter', name: 'Starter Page', type: 'link', icon: 'av_timer' },
+  { state: 'student', type: 'link', name: 'Student', icon: 'web' },
   // { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   // { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   // { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },
@@ -59,24 +55,16 @@ const MENUITEMS = [
 ];
 
 @Injectable()
-export class MenuItems implements OnInit {
-  modules:Array<any>;
-  constructor(private  apiService:  ApiService){
-  //  const item= this.apiService.getModules().subscribe((data : any)=>this.modules=data);
+export class MenuItems {
+
+  constructor(private apiService:ApiService){
+
+  }
+  ngOnInit(){
+    var data = this.apiService.getModules();
   }
 
-  ngOnInit(){
-    
-  }
   getMenuitem(): Menu[] {
- // this.modules;
     return MENUITEMS;
   }
-
-  fetchModule(data){
-    this.modules=data
-    return this.modules;
-  }
-
-
 }

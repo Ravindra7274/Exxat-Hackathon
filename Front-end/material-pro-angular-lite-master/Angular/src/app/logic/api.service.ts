@@ -17,7 +17,7 @@ export class ApiService {
         return this.http.get(this.accessPointUrl + '' +'?ClientId=' + ClientId + '&StudentName=' + StudentName, { headers: this.headers });
     }
 
-    getModules(){
+    getModules() : any{
       debugger;
         return this.http.get(this.accessPointUrl+'Module',{headers:this.headers})
                         .map((data:Array<SupportModule>[])=>data)
