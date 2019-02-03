@@ -24,6 +24,7 @@ namespace Exxat.SupportPro.API.Repositories
             {
                 List<string> ModuleNames = new List<string>();
                 var modules = ModelContext.Module.ToList();
+                return modules;
             }
             catch (Exception e)
             {

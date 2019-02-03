@@ -7,7 +7,7 @@ namespace Exxat.SupportPro.API.Services
 {
     public interface IModuleService
     {
-        Task<List<string>> GetAllModules();
+        Task<List<Module>> GetAllModules();
     }
     public class ModuleService: IModuleService
     {
@@ -17,7 +17,7 @@ namespace Exxat.SupportPro.API.Services
             _queryRepository = queryRepository;
         }
 
-        public Task<List<string>> GetAllModules()
+        public Task<List<Module>> GetAllModules()
         {
             return _queryRepository.GetAll();
         }

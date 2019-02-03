@@ -15,7 +15,7 @@ namespace Exxat.SupportPro.API.Controllers
             _moduleService = moduleService;
         }
         [HttpGet]
-        public async Task<List<string>> GetAsync()
+        public async Task<List<Module>> GetAsync()
         {
             return await _moduleService.GetAllModules();
         }
