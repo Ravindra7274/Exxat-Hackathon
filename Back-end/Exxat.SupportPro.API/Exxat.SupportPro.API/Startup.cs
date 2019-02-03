@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 
 namespace Exxat.SupportPro.API
 {
@@ -33,6 +34,18 @@ namespace Exxat.SupportPro.API
             services.AddSingleton(connectionString);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            var corsSettings = new List<string>();
+            Configuration.Bind("CorsURLs", corsSettings);
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                builder => builder
+                .WithOrigins(corsSettings.ToArray()) //Note: The URL must be specified without a trailing slash (/).
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
