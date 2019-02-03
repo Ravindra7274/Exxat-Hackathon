@@ -20,7 +20,7 @@ export class ApiService {
     getModules(){
       debugger;
         return this.http.get(this.accessPointUrl+'Module',{headers:this.headers})
-                        .map((data:any[])=>data);
+                        .map((data:Array<SupportModule>[])=>data)
     }
 
     getCommonQueries(moduleId:any){
