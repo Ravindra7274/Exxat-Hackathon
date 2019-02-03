@@ -9,7 +9,8 @@ namespace Exxat.SupportPro.API.Repositories
     public interface IQueryRepository
     {
         Task<List<Module>> GetAll();
-        Task<List<CommonQuery>> GetAllQueries(int id);
+        Task<List<CommonQuery>> GetAllQueries(int moduleId);
+        Task<CommonQuery> GetQuery(int queryId);
     }
     public class QueryRepository:IQueryRepository
     {
@@ -32,13 +33,25 @@ namespace Exxat.SupportPro.API.Repositories
             }
         }
 
-        public async Task<List<CommonQuery>> GetAllQueries(int id)
+        public async Task<List<CommonQuery>> GetAllQueries(int moduleId)
         {
             try
             {
-                return ModelContext.CommonQueries.Where(x => x.ModuleId == id).ToList();
+                return ModelContext.CommonQueries.Where(x => x.ModuleId == moduleId).ToList();
             }
             catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task<CommonQuery> GetQuery(int queryId)
+        {
+            try
+            {
+                return ModelContext.CommonQueries.Where(x => x.QueryId == queryId).FirstOrDefault();
+            }
+            catch (Exception e)
             {
                 throw e;
             }
