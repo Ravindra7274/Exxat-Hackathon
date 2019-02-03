@@ -1,38 +1,113 @@
 <div>
   <div fxLayout="row">
     <div fxFlex.gt-sm="100%">
-      <div>
-        
-      </div>
-        <div class="col-md-3">
-            <mat-form-field>
-                <mat-select class="example-select" [(ngModel)]="position">
-                  <mat-option value="before">Before</mat-option>
-                  <mat-option value="after">After</mat-option>
-                  <mat-option value="above">Above</mat-option>
-                  <mat-option value="below">Below</mat-option>
-                  <mat-option value="left">Left</mat-option>
-                  <mat-option value="right">Right</mat-option>
-                </mat-select>
-              </mat-form-field>
-        </div>
+
+      <mat-card>
+        <mat-card-content>      
+          <div class="col-xs-3">
+              <mat-card>
+                  <mat-card-content>
+                      <mat-card-title><button mat-raised-button color="Successful" [matMenuTriggerFor]="domain">Select School Name</button></mat-card-title>
+                      <!-- <mat-card-subtitle><code>&lt;mat-menu&gt;</code> is a floating panel containing list of options.</mat-card-subtitle> -->
+                      
+                    
+                       <mat-menu #domain="matMenu">
+                        <button mat-menu-item [matMenuTriggerFor]="PT">PT</button>
+                        <button mat-menu-item [matMenuTriggerFor]="OT">OT</button>
+                        <button mat-menu-item [matMenuTriggerFor]="Nursing">Nursing</button>
+                      </mat-menu>
+      
+                      <mat-menu #PT="matMenu">
+                        <button mat-menu-item >Augustine-PT</button>
+                        <button mat-menu-item >Concordia-PT</button>
+                        <button mat-menu-item>Creighton-PT</button>
+                        <button mat-menu-item>TouroM-PT</button>
+                        <button mat-menu-item>UWL-PT</button>
+                      </mat-menu>
+      
+                      <mat-menu #OT="matMenu">
+                        <button mat-menu-item>Yale-PA</button>
+                        <button mat-menu-item>TouroB-PA</button>
+                        <button mat-menu-item>Drexel-PA</button>
+                   
+                      </mat-menu>
+      
+                      <mat-menu #Nursing="matMenu">
+                        <button mat-menu-item>Drexel-Nursing</button>
+                        <button mat-menu-item>JHU-Nursing</button>
+                    
+                      </mat-menu> 
+      
+                   
+                  </mat-card-content>    
+             </mat-card>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
       <mat-card>
         <mat-card-content>
           <mat-card-title>Solve your issues related to Student-Module</mat-card-title>
-         
+
           <mat-accordion>
             <mat-expansion-panel>
               <mat-expansion-panel-header>
-                <mat-panel-title> Student data is not visible </mat-panel-title>
-            
+                <mat-panel-title>
+                  <h5>Student data is not visible</h5>
+                </mat-panel-title>
+
               </mat-expansion-panel-header>
               <mat-form-field>
                 <input matInput placeholder="Student Name"> </mat-form-field>
               <mat-form-field>
-                <input matInput placeholder="Student Id"> </mat-form-field>
+                <input matInput placeholder="Student Email"> </mat-form-field>
+
+              <div fxLayout="row">
+                <div fxFlex.gt-sm="100%">
+                  <mat-card>
+                    <mat-card-content>
+                      <mat-card-title>Query Status
+                        <button class="text-white" mat-button style="background-color:#00251a;margin-left: 400px">Successful</button>
+
+                        <button class="text-white" mat-button style="background-color:#FF5252;margin-left: 80px">Fail</button>
+                      </mat-card-title>
+                      <mat-card-subtitle>Please wait while we are trying to troubleshoot your request
+                      </mat-card-subtitle>
+
+                      <mat-list role="list">
+                        <mat-list-item role="listitem">Is Student active?</mat-list-item>
+                        <mat-list-item role="listitem">Item 2</mat-list-item>
+                        <mat-list-item role="listitem">Item 3</mat-list-item>
+                      </mat-list>
+
+                      <mat-progress-bar mode="buffer"></mat-progress-bar>
+
+
+
+                      <p>Following are the prechecks which needs to be fixed.</p>
+                      <mat-list role="list">
+                        <mat-list-item role="listitem">Is Student active?
+                          <button class="text-white" mat-button style="background-color:#00796b;margin-left: 80px">
+                            Fix it</button>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">Item 2</mat-list-item>
+
+                      </mat-list>
+
+                      <p class="text-success">Your request is resolved. you can verify it now.</p>
+                      <p class="text-danger">Unfortunately, we can not resolve it using
+                        generic precheck.
+                        you can still add your unique question in Question queue. We will resolve it in upcoming days</p>
+
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </div>
             </mat-expansion-panel>
-          
+
+
           </mat-accordion>
+
         </mat-card-content>
       </mat-card>
 
