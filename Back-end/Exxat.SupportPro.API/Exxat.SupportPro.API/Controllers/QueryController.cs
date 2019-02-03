@@ -37,17 +37,11 @@ namespace Exxat.SupportPro.API.Controllers
         }
         // PUT api/values/5
         [HttpGet("[action]")]
-        public async Task GenerateQuery(int id, string[] args)
+        public async Task GenerateQuery(int id, Dictionary<string,string> clauses)
         {
             var query = await _queryService.GetCommonQuery(id);
-            var dynamic_query = query.InitialQuery;
+            var generatedQuery = _queryService.Generate(query.InitialQuery, clauses);
+            await _queryService.ExecuteQueryAsync(generatedQuery, query.QueryType);
         }
-
-        [HttpGet("[action]")]
-        public async Task<object> ExecuteQuery(string query, string queryType)
-        {
-            return await _queryService.ExecuteQueryAsync(query, queryType);
-        }
-        
     }
 }

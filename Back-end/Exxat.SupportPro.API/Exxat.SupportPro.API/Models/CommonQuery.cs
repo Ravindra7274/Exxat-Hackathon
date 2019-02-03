@@ -17,15 +17,17 @@ namespace Exxat.SupportPro.API.Models
         [NotMapped]
         public string InitialQuery { get; set; }
         [NotMapped]
+        public string QueryType { get; set; }
+        [NotMapped]
         public List<string> InputParams { get; set; }
         [NotMapped]
         public List<Troubleshoot> Troubleshoot { get; set; }
-
     }
 
     public class QueryContextModel
     {
         public string InitialQuery { get; set; }
+        public string QueryType { get; set; }
         public List<string> InputParams { get; set; }
         public List<Troubleshoot> Troubleshoot { get; set; }
     }
