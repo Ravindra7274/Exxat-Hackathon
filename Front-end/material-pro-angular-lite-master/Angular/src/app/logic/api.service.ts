@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,HttpClientModule  } from '@angular/common/http';
+import { SupportModule } from '../models/support.module.model';
+import 'rxjs/Rx';
 
 @Injectable()
 
@@ -16,7 +18,9 @@ export class ApiService {
     }
 
     getModules(){
-        return this.http.get(this.accessPointUrl+'Module',{headers:this.headers});
+      debugger;
+        return this.http.get(this.accessPointUrl+'Module',{headers:this.headers})
+                        .map((data:any[])=>data);
     }
 
     getCommonQueries(moduleId:any){
