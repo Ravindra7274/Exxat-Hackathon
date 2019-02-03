@@ -25,7 +25,16 @@ namespace Exxat.SupportPro.API.Controllers
         [HttpGet("{id}")]
         public async Task<List<CommonQuery>> GetAsync(int id)
         {
-            return await _queryService.GetCommonQuery(id);
+            var queries = await _queryService.GetCommonQuery(id);
+            foreach (var query in queries)
+            {
+                var obj = Utility.Serializer.GetObject<QueryContextModel>(query.Context);
+                if (obj != null)
+                    query.InputParams = obj.InputParams;
+                query.Context = null;
+            }
+
+            return queries;
         }
 
         // POST api/values
