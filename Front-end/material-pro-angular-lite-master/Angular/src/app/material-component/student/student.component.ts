@@ -27,6 +27,8 @@ export class StudentComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+    this.getModules();
+
   }
 
   getModules(){

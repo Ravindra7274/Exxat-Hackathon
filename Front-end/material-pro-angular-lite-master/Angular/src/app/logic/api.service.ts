@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpClientModule  } from '@angular/common/http';
 
 @Injectable()
 
 export class ApiService {
     private headers: HttpHeaders;
-    private accessPointUrl: string = 'http://localhost:53877/';
+    private accessPointUrl: string = 'http://localhost:50495/';
 
     constructor(private http: HttpClient) {
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
+        this.headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        debugger;
     }
 
     getStudentList(ClientId: any, StudentName: any) {
@@ -19,7 +21,7 @@ export class ApiService {
         return this.http.get(this.accessPointUrl+'Module',{headers:this.headers});
     }
 
-    getCommonQueries(moduleName:any){
-        return this.http.get(this.accessPointUrl + '' + '?moduleName=' +moduleName , {headers:this.headers});
+    getCommonQueries(moduleId:any){
+        return this.http.get(this.accessPointUrl + '' + 'Module/' +moduleId , {headers:this.headers});
     }
 }
