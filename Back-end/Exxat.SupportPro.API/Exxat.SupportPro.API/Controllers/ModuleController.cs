@@ -1,20 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Exxat.SupportPro.API.Models;
+using Exxat.SupportPro.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exxat.SupportPro.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    [Route("[controller]")]
+    public class ModuleController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        protected readonly IModuleService _moduleService;
+        public ModuleController(IModuleService moduleService)
         {
-            return new string[] { "value1", "value2" };
+            _moduleService = moduleService;
+        }
+        [HttpGet]
+        public async Task<List<string>> GetAsync()
+        {
+            return await _moduleService.GetAllModules();
         }
 
         // GET api/values/5
