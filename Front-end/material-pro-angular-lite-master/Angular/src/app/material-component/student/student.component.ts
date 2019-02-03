@@ -39,8 +39,6 @@ export class StudentComponent implements OnInit {
       this.modules = data;
     }
     );
-    this.modules;
-    debugger;
   }
 
   getStudentList(clientId: any, studentName: any) {
