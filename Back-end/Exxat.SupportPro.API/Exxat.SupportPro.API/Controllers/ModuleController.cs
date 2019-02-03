@@ -17,32 +17,9 @@ namespace Exxat.SupportPro.API.Controllers
         [HttpGet]
         public async Task<List<Module>> GetAsync()
         {
+            this.HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            this.HttpContext.Response.Headers.Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             return await _moduleService.GetAllModules();
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
