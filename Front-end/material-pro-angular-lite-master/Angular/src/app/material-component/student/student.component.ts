@@ -18,6 +18,8 @@ export class StudentComponent implements OnInit {
   filteredStudent: Array<any>;
 
 
+  status: boolean;
+
   constructor(private _formBuilder: FormBuilder,
     private _apiservice: ApiService) { }
 
