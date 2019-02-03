@@ -8,6 +8,7 @@ namespace Exxat.SupportPro.API.Services
     public interface IQueryService
     {
         Task<List<Module>> GetAllModules();
+        Task<List<CommonQuery>> GetCommonQuery(int id);
     }
     public class QueryService: IQueryService
     {
@@ -20,6 +21,11 @@ namespace Exxat.SupportPro.API.Services
         public Task<List<Module>> GetAllModules()
         {
             return _queryRepository.GetAll();
+        }
+
+        public async Task<List<CommonQuery>> GetCommonQuery(int id)
+        {
+            return await _queryRepository.GetAllQueries(id);
         }
     }
 }

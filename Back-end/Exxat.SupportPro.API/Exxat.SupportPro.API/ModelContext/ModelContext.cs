@@ -27,7 +27,7 @@ namespace Exxat.SupportPro.API.ModelContext
         
         //public DbSet<SupportToolModel> SupportToolModels { get; set; }
         public DbSet<Module> Module { get; set; }
-        public DbSet<CommonQuery> CommonQuerie { get; set; }
+        public DbSet<CommonQuery> CommonQueries { get; set; }
         //public DbSet<Troubleshoot> Troubleshoots { get; set; }
     }
 }
