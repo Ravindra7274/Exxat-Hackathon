@@ -1,0 +1,42 @@
+<div>
+  <div fxLayout="row">
+    <div fxFlex.gt-sm="100%">
+      <div>
+        
+      </div>
+        <div class="col-md-3">
+            <mat-form-field>
+                <mat-select class="example-select" [(ngModel)]="position">
+                  <mat-option value="before">Before</mat-option>
+                  <mat-option value="after">After</mat-option>
+                  <mat-option value="above">Above</mat-option>
+                  <mat-option value="below">Below</mat-option>
+                  <mat-option value="left">Left</mat-option>
+                  <mat-option value="right">Right</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+      <mat-card>
+        <mat-card-content>
+          <mat-card-title>Solve your issues related to Student-Module</mat-card-title>
+         
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title> Student data is not visible </mat-panel-title>
+            
+              </mat-expansion-panel-header>
+              <mat-form-field>
+                <input matInput placeholder="Student Name"> </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Student Id"> </mat-form-field>
+            </mat-expansion-panel>
+          
+          </mat-accordion>
+        </mat-card-content>
+      </mat-card>
+
+
+    </div>
+  </div>
+</div>
