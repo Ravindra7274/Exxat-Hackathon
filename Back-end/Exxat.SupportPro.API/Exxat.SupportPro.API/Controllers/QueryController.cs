@@ -21,7 +21,6 @@ namespace Exxat.SupportPro.API.Controllers
             return await _queryService.GetAllModules();
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
         public async Task<List<CommonQuery>> GetAsync(int id)
         {
@@ -42,20 +41,13 @@ namespace Exxat.SupportPro.API.Controllers
         {
             var query = await _queryService.GetCommonQuery(id);
             var dynamic_query = query.InitialQuery;
-
-            string.Format(dynamic_query, "", "");
-
         }
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+
+        [HttpGet("[action]")]
+        public async Task<object> ExecuteQuery(string query, string queryType)
         {
+            return await _queryService.ExecuteQueryAsync(query, queryType);
         }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }
