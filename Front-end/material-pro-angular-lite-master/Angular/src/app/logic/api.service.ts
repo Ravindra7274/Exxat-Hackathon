@@ -20,6 +20,6 @@ export class ApiService {
     }
 
     getCommonQueries(moduleId:any){
-        return this.http.get(this.accessPointUrl + '' + 'Module/' +moduleId , {headers:this.headers});
+        return this.http.get(this.accessPointUrl + '' + 'Query/' +moduleId , {headers:this.headers});
     }
 }
