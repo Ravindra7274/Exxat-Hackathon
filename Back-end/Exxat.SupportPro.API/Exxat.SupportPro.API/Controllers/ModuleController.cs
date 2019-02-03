@@ -17,8 +17,6 @@ namespace Exxat.SupportPro.API.Controllers
         [HttpGet]
         public async Task<List<Module>> GetAsync()
         {
-            this.HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            this.HttpContext.Response.Headers.Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             return await _moduleService.GetAllModules();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Exxat.SupportPro.API.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Exxat.SupportPro.API.Repositories
     {
         Task<List<Module>> GetAll();
         Task<List<CommonQuery>> GetAllQueries(int id);
+        Task<object> ExecuteAsync(string query, string queryType);
     }
     public class QueryRepository:IQueryRepository
     {
@@ -17,6 +19,47 @@ namespace Exxat.SupportPro.API.Repositories
         public QueryRepository(ModelContext.ModelContext modelContext)
         {
             ModelContext = modelContext;
+        }
+
+        public async Task<object> ExecuteAsync(string query, string queryType)
+        {
+            try
+            {
+                if(!string.IsNullOrEmpty(queryType))
+                {
+                    switch (queryType)
+                    {
+                        case "select":
+                            List<object> res = new List<object>();
+                            using (var cmd = ModelContext.Database.GetDbConnection().CreateCommand())
+                            {
+                                cmd.CommandText = query;
+                                await ModelContext.Database.OpenConnectionAsync();
+                                using (var reader = await cmd.ExecuteReaderAsync())
+                                {
+                                    while (await reader.ReadAsync())
+                                    {
+                                        for (int i = 0; i < reader.FieldCount; i++)
+                                        {
+                                            res.Add(reader[i]);
+                                        }
+                                    }
+                                    return res;
+                                }
+                            }
+                        default:
+                            return await ModelContext.Database.ExecuteSqlCommandAsync(query);
+                    }
+                }
+                else
+                {
+                    throw new Exception("Query Type error");
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
 
         public async Task<List<Module>> GetAll()

@@ -21,29 +21,17 @@ namespace Exxat.SupportPro.API.Controllers
             return await _queryService.GetAllModules();
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
         public async Task<List<CommonQuery>> GetAsync(int id)
         {
             return await _queryService.GetCommonQuery(id);
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("[action]")]
+        public async Task<object> ExecuteQuery(string query, string queryType)
         {
+            return await _queryService.ExecuteQueryAsync(query, queryType);
         }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }

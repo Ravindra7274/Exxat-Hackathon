@@ -14,7 +14,7 @@ namespace Exxat.SupportPro.API.Models
         [NotMapped]
         public List<string> InputParams { get; set; }
         [NotMapped]
-        public List<Troubleshoot> Troubleshoot { get; set; }
+        public List<Troubleshoot> Troubleshoots { get; set; }
         public string Context { get; set; }
 
         [ForeignKey("ModuleId")]

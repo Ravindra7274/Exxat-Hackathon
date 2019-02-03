@@ -1,5 +1,6 @@
 ﻿using Exxat.SupportPro.API.Models;
 using Exxat.SupportPro.API.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace Exxat.SupportPro.API.Services
     {
         Task<List<Module>> GetAllModules();
         Task<List<CommonQuery>> GetCommonQuery(int id);
+        Task<object> ExecuteQueryAsync(string query, string queryType);
     }
     public class QueryService: IQueryService
     {
@@ -16,6 +18,11 @@ namespace Exxat.SupportPro.API.Services
         public QueryService(IQueryRepository queryRepository)
         {
             _queryRepository = queryRepository;
+        }
+
+        public Task<object> ExecuteQueryAsync(string query, string queryType)
+        {
+            return _queryRepository.ExecuteAsync(query, queryType);
         }
 
         public Task<List<Module>> GetAllModules()
